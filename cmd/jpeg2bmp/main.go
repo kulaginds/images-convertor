@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
+	"image/jpeg"
 	"image/png"
 	"os"
 
 	"github.com/pkg/errors"
-	"golang.org/x/image/bmp"
 )
 
 func main() {
@@ -40,7 +40,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err = bmp.Encode(outF, img); err != nil {
+	if err = jpeg.Encode(outF, img, nil); err != nil {
 		fmt.Println(errors.Wrap(err, "cannot encode bmp"))
 		os.Exit(1)
 	}
